@@ -35,6 +35,10 @@ let b:undo_ftplugin = "setl comments<"
 let b:did_ftplugin     = 1
 let b:current_ftplugin = 'actionscript'
 
+if exists('&ofu')
+  setlocal ofu=actionscriptcomplete#Complete
+endif
+
 " Mappings to move to the next BEGIN ... END block
 " \W - no characters or digits
 nmap <buffer> <silent> ]] :call search('\\c^\\s*{\\s*$', 'W' )<CR>
