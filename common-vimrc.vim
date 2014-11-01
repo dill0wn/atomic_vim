@@ -173,6 +173,7 @@ let g:tlist_coffee_settings = 'coffee;f:function,v:variable'
 
 " extensions that should be included in tag files
 let g:taggable_extensions = [
+                              \ 'as',
                               \ 'c',
                               \ 'coffee',
                               \ 'cs',
