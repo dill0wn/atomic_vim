@@ -21,6 +21,7 @@ setlocal formatoptions+=c
 
 " Choose setting to be compatible with FlexBuilder (Eclipse)
 setlocal tabstop=4
+setlocal shiftwidth=4
 setlocal noexpandtab
 
 " If the above runtime command succeeded, do not load the default settings
