@@ -19,9 +19,9 @@
 [submodule "bundle/optional/syntastic"]
 	path = bundle/optional/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-; [submodule "bundle/optional/taghighlight"]
-; 	path = bundle/optional/taghighlight
-; 	url = https://github.com/abudden/taghighlight-automirror.git
+[submodule "bundle/optional/delimitMate"]
+	path = bundle/optional/delimitMate
+	url = https://github.com/Raimondi/delimitMate.git
 [submodule "bundle/optional/taghighlight"]
 	path = bundle/optional/taghighlight
 	url = https://github.com/abudden/taghighlight-automirror.git
