@@ -12,6 +12,7 @@ extensions = ARGV[0]
 extension_regexp = /\.(#{extensions})$/
 excludes = ARGV[1].gsub("|.", "|")
 exclude_regexp = /^\..*\/\.|\b(#{excludes})\b/
+overrides = ARGV[2]
 
 # old way of generating tags - here for reference in case the new technique
 # using Ruby's Find doesn't work out
@@ -34,7 +35,7 @@ dotctags_file = File.expand_path(File.join(File.dirname(__FILE__),"dotctags"))
 # Let's just start fresh.
 File.delete tag_file if File.exist? tag_file
 
-run "ctags --options='#{dotctags_file}' -f #{tag_file} #{files_to_tag.map{|s| "'#{s}'"}.join(' ')}"
+run "ctags --options='#{dotctags_file}' -f #{tag_file} #{overrides} #{files_to_tag.map{|s| "'#{s}'"}.join(' ')}"
 FileUtils.touch tag_file
 
 # ctags doesn't generate anything for empty files, so manually jam them into the tags file

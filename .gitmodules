@@ -16,3 +16,12 @@
 [submodule "bundle/vim-localrc"]
 	path = bundle/vim-localrc
 	url = https://github.com/thinca/vim-localrc.git
+[submodule "bundle/optional/syntastic"]
+	path = bundle/optional/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+; [submodule "bundle/optional/taghighlight"]
+; 	path = bundle/optional/taghighlight
+; 	url = https://github.com/abudden/taghighlight-automirror.git
+[submodule "bundle/optional/taghighlight"]
+	path = bundle/optional/taghighlight
+	url = https://github.com/abudden/taghighlight-automirror.git
