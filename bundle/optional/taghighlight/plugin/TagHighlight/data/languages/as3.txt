@@ -1,0 +1,9 @@
+FriendlyName:actionscript
+CTagsName:ActionScript
+PythonExtensionMatcher:as
+VimExtensionMatcher:as
+VimFileTypes:actionscript
+VimSyntaxes:actionscript
+Suffix:as3
+
+# vim: ff=unix:noet
