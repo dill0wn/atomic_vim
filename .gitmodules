@@ -22,6 +22,9 @@
 [submodule "bundle/optional/delimitMate"]
 	path = bundle/optional/delimitMate
 	url = https://github.com/Raimondi/delimitMate.git
-[submodule "bundle/optional/taghighlight"]
-	path = bundle/optional/taghighlight
-	url = https://github.com/abudden/taghighlight-automirror.git
+[submodule "bundle/optional/vim-multiple-cursors"]
+	path = bundle/optional/vim-multiple-cursors
+	url = https://github.com/terryma/vim-multiple-cursors.git
+[submodule "bundle/optional/vim-airline"]
+	path = bundle/optional/vim-airline
+	url = https://github.com/bling/vim-airline.git

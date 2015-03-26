@@ -18,12 +18,21 @@ if !exists("optional")
   Opt "taghighlight"
   " Opt "townk-vim-autoclose-4dfe50" 
   Opt "delimitMate"
+  Opt "vim-airline"
+  Opt "vim-multiple-cursors"
+  Opt "nerdtree"
 
   call optional#include(optional) 
   delcommand Opt
 endif
 
 set autoread
+set cursorline
+
+au FocusGained * checktime
+au CursorHold  * checktime
+au FileChangedShell  * checktime
+au WinEnter * checktime
 
 " syntastic
 " let g:syntastic_check_on_open = 0
@@ -66,6 +75,19 @@ if exists("g:tag_options_override")
     endif
   endfor
 endif
+
+
+let g:multi_cursor_use_default_mapping = 0
+let g:multi_cursor_next_key='<C-d>'
+let g:multi_cursor_prev_key='<C-s>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<esc>'
+
+
+let g:yankstack_map_keys = 0
+
+let g:multi_cursor_normal_maps={'j':1}
+
 
 if version >= 508 || !exists("did_taghighlight_syn_inits")
   if version < 508
@@ -126,6 +148,12 @@ endif
 inoremap jk <esc>
 inoremap <esc> <nop>
 
+" refresh, only necessary when on terminal
+noremap <F5> :e<CR>
+
+noremap <F2> :w<CR>
+noremap <D-s> :w<CR>
+
 " Move line or selection up/down one line
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
@@ -140,20 +168,25 @@ map <leader>e :FufFile<CR>
 " haven't played around with this stuff yet.
 map <leader>n :CtrlPBufTag<CR>
 map <leader>N :CtrlPBufTagAll<CR> 
+" map <leader><C-t> :RegenTags<CR>:silent! execute pathogen#helptags()<CR>
 " map <leader><C-t> :RegenTags<CR>:CtrlPClearAllCaches<CR>:silent! execute pathogen#helptags()<CR>
 map <leader><C-t> :UpdateTypesFile<CR>:CtrlPClearAllCaches<CR>:silent! execute pathogen#helptags()<CR>
+" map <leader><C-t> :RegenTags<CR>:UpdateTypesFile<CR>:CtrlPClearAllCaches<CR>:silent! execute pathogen#helptags()<CR>
 
 map <leader>b :TagbarToggle<CR>
 
+map <leader>p :NERDTreeToggle<CR>
+
+
 " window nav
 map <leader>h :wincmd h<CR>
-map <C-w>h <nop>
+" map <C-w>h <nop>
 map <leader>j :wincmd j<CR>
-map <C-w>j <nop>
+" map <C-w>j <nop>
 map <leader>k :wincmd k<CR>
-map <C-w>k <nop>
+" map <C-w>k <nop>
 map <leader>l :wincmd l<CR>
-map <C-w>l <nop>
+" map <C-w>l <nop>
 map <leader><Tab> :wincmd p<CR>
 
 map <leader>c :close<CR>
