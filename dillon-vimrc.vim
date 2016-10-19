@@ -1,7 +1,13 @@
 " echo "dillon-vimrc.vim"
 
 " i like .project and .actionScriptProperties files, but not all deez
-let g:vim_ignore += ["bin-debug", "bin-release", "bin-release-temp", ".git", '.*.ipa'] 
+let g:vim_ignore += ["bin-debug", "bin-release", "bin-release-temp", ".git", '.*.ipa', '*.meta'] 
+
+" set guifont
+set guifont=Menlo\ Regular\ For\ Powerline:h14
+
+let g:molokai_original = 1
+colorscheme molokai 
 
 if !exists("optional")
   let optional = []
@@ -29,10 +35,10 @@ endif
 set autoread
 set cursorline
 
-au FocusGained * checktime
-au CursorHold  * checktime
-au FileChangedShell  * checktime
-au WinEnter * checktime
+" au FocusGained * checktime
+" au CursorHold  * checktime
+" au FileChangedShell  * checktime
+" au WinEnter * checktime
 
 " syntastic
 " let g:syntastic_check_on_open = 0
@@ -61,7 +67,8 @@ let g:ctrlp_map = ''
 let g:ctrlp_extensions = ['tag', 'buffertag', 'line'] 
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_open_multiple_files = '2vjr' 
-" let g:ctrlp_working_path_mode = 'war'
+let g:ctrlp_working_path_mode = 'war'
+let g:ctrlp_match_window = 'max:20'
 
 let g:ctrlp_buftag_types = { 
   \ 'actionscript': g:custom_ctag_options.actionscript
@@ -76,11 +83,15 @@ if exists("g:tag_options_override")
   endfor
 endif
 
+" Unity Stuff
+autocmd FileType csharp let wildignore+=*/Library/*,*/obj/*,*/Temp/*
+
+
 
 let g:multi_cursor_use_default_mapping = 0
 let g:multi_cursor_next_key='<C-d>'
-let g:multi_cursor_prev_key='<C-s>'
-let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_prev_key='<C-x>'
+let g:multi_cursor_skip_key='<C-s>'
 let g:multi_cursor_quit_key='<esc>'
 
 
@@ -176,6 +187,7 @@ map <leader><C-t> :UpdateTypesFile<CR>:CtrlPClearAllCaches<CR>:silent! execute p
 map <leader>b :TagbarToggle<CR>
 
 map <leader>p :NERDTreeToggle<CR>
+map <leader>] :NERDTreeFind<CR>
 
 
 " window nav
@@ -222,7 +234,7 @@ function! DillonRefreshIgnores() " {{{1
     " if !exists('g:ctrlp_custom_ignore')
       let g:ctrlp_custom_ignore = {
             \ 'dir':  '\v[\/](' . join(map(copy(g:vim_ignore), 'v:val'), "|") . ')$',
-            \ 'file': '\v\.(exe|so|dll|orig|DS_Store|swo|swp)$'
+            \ 'file': '\v\.(exe|so|dll|orig|DS_Store|swo|swp|meta)$'
             \ }
     " endif
 
@@ -304,3 +316,4 @@ let g:tagbar_left = 1
 "         \ 'union'     : 'u'
 "     \ }
 " \ }
+
